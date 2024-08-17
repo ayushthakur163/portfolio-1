@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
-
     <style>
         /* Existing styles */
         html {
@@ -72,13 +71,6 @@
             0% { background-position: 0% 0%; }
             50% { background-position: 100% 100%; }
             100% { background-position: 0% 0%; }
-        }
-        .dark-mode-toggle {
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .dark-mode-toggle:hover {
-            color: #ffcc00;
         }
         .parallax {
             background-attachment: fixed;
@@ -163,6 +155,36 @@
         #back-to-top.show {
             display: flex; /* Show button when it's needed */
         }
+        /* Additional CSS for the "Download CV" button */
+        .creative-download-button {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .creative-download-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .creative-download-button:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .creative-download-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 text-white custom-scrollbar">
@@ -182,14 +204,14 @@
                 <li><a href="#contact" class="text-2xl nav-link px-4 py-2 hover:text-yellow-300 transition-colors duration-300 hover-effect">Contact</a></li>
             </ul>
             <div class="hidden md:flex items-center space-x-4">
-                <input type="text" placeholder="Search..." class="p-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
-                <button class="h-10 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-5 rounded transition-all duration-300 ease-in-out hover-effect">
-                    View My Work
-                </button>
-                <i id="dark-mode-toggle" class="fas fa-moon dark-mode-toggle text-2xl md:text-3xl"></i>
+                <a href="re " download class="bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold py-2 px-5 rounded transition-all duration-300 ease-in-out hover:scale-105 creative-download-button flex items-center">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
             </div>
         </div>
     </nav>
+    
+
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
@@ -201,6 +223,9 @@
             <li><a href="#contact" class="text-2xl text-white mb-4 hover:text-yellow-300 transition-colors duration-300">Contact</a></li>
         </ul>
     </div>
+
+    
+
 
     <!-- Hero Section -->
     <div id="home" class="relative bg-cover bg-center min-h-screen bg-parallax-hero parallax animate-background">
@@ -294,40 +319,43 @@
         <p class="text-sm">Developed with <i class="fas fa-heart text-red-500"></i> by Ayush Thakur</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('active');
-        });
-
-        document.getElementById('close-menu').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.remove('active');
-        });
-
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Show or hide the "Back to Top" button based on scroll position
-        window.addEventListener('scroll', function() {
-            const backToTopButton = document.getElementById('back-to-top');
-            if (window.scrollY > 300) { // Show button after scrolling 300px
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-
-                // Smooth scroll to top when the button is clicked
-                document.getElementById('back-to-top').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-</body>
-</html>
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-5 right-5 bg-yellow-300 text-black font-bold py-2 px-4 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105">
+            ↑
+        </button>
+    
+        <!-- JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const closeMenu = document.getElementById('close-menu');
+                const backToTopButton = document.getElementById('back-to-top');
+    
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+    
+                closeMenu.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+    
+                // Back to Top Button visibility
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                });
+    
+                // Smooth scroll to top
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
 

@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+    
     <style>
         /* Existing styles */
         html {
@@ -80,15 +80,7 @@
         .bg-parallax-hero {
             background-image: url('premium_photo-1687067885966-d755107af021.avif');
         }
-        .bg-parallax-about {
-            background-image: url(#); /* Add your parallax background image */
-        }
-        .bg-parallax-projects {
-            background-image: url(#); /* Add your parallax background image */
-        }
-        .bg-parallax-contact {
-            background-image: url(#); /* Add your parallax background image */
-        }
+       
         .project-card {
             background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
         }
@@ -190,37 +182,37 @@
 <body class="bg-gray-900 text-white custom-scrollbar">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 p-5 shadow-lg z-50">
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 p-5 shadow-lg z-50" role="navigation" aria-label="Main Navigation">
         <div class="container mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <img class="w-16 h-16 rounded-md" src="Ayush car.jpg" alt="Ayush's profile" loading="">
+                <img class="w-16 h-16 rounded-md" src="Ayush car.jpg" alt="Ayush Thakur's profile image" loading="lazy">
                 <h1 class="text-white text-4xl font-semibold nav-link px-4 py-2 hover:text-black-300 transition-colors duration-300 hover-effect">Ayush Thakur</h1>
             </div>
-            <button id="menu-toggle" class="md:hidden text-white text-2xl hover:text-yellow-300 transition-colors duration-300">☰</button>
+            <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-white text-2xl hover:text-yellow-300 transition-colors duration-300" aria-label="Toggle menu">
+                ☰
+            </button>
             <ul id="menu" class="hidden md:flex flex-1 items-center justify-center space-x-6">
-                <li><a href="#home" class="text-2xl nav-link px-4 py-2 hover:text-yellow-300 transition-colors duration-300 hover-effect">Home</a></li>
-                <li><a href="#about" class="text-2xl nav-link px-4 py-2 hover:text-green-400 transition-colors duration-300 hover-effect">About</a></li>
-                <li><a href="#projects" class="text-2xl nav-link px-4 py-2 hover:text-blue-400 transition-colors duration-300 hover-effect">Projects</a></li>
-                <li><a href="#contact" class="text-2xl nav-link px-4 py-2 hover:text-yellow-300 transition-colors duration-300 hover-effect">Contact</a></li>
+                <li><a href="#home" class="text-2xl nav-link px-4 py-2 hover:text-yellow-300 transition-colors duration-300 hover-effect" aria-label="Go to Home section">Home</a></li>
+                <li><a href="#about" class="text-2xl nav-link px-4 py-2 hover:text-green-400 transition-colors duration-300 hover-effect" aria-label="Go to About section">About</a></li>
+                <li><a href="#projects" class="text-2xl nav-link px-4 py-2 hover:text-blue-400 transition-colors duration-300 hover-effect" aria-label="Go to Projects section">Projects</a></li>
+                <li><a href="#open-modal" class="text-2xl nav-link px-4 py-2 hover:text-yellow-300 transition-colors duration-300 hover-effect" aria-label="Go to Contact section">Contact</a></li>
             </ul>
             <div class="hidden md:flex items-center space-x-4">
-                <a href="resume.docx.(1).pdf " download class="bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold py-2 px-5 rounded transition-all duration-300 ease-in-out hover:scale-105 creative-download-button flex items-center">
-                    <i class="fas fa-download mr-2"></i> Download CV
+                <a href="resume.docx (1).pdf" download class="bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold py-2 px-5 rounded transition-all duration-300 ease-in-out hover:scale-105 creative-download-button flex items-center" aria-label="Download CV">
+                    <i class="fas fa-download mr-2" aria-hidden="true"></i> Download CV
                 </a>
             </div>
         </div>
     </nav>
-    
-
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu">
-        <span id="close-menu" class="close-menu">&times;</span>
-        <ul class="flex flex-col items-center justify-center h-full">
-            <li><a href="#home" class="text-2xl text-white mb-4 hover:text-yellow-300 transition-colors duration-300">Home</a></li>
-            <li><a href="#about" class="text-2xl text-white mb-4 hover:text-green-400 transition-colors duration-300">About</a></li>
-            <li><a href="#projects" class="text-2xl text-white mb-4 hover:text-blue-400 transition-colors duration-300">Projects</a></li>
-            <li><a href="#contact" class="text-2xl text-white mb-4 hover:text-yellow-300 transition-colors duration-300">Contact</a></li>
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-labelledby="mobile-menu-heading" aria-hidden="true">
+        <span id="close-menu" class="close-menu" role="button" aria-label="Close menu">&times;</span>
+        <ul class="flex flex-col items-center justify-center h-full" role="list">
+            <li><a href="#home" class="text-2xl text-white mb-4 hover:text-yellow-300 transition-colors duration-300" aria-label="Go to Home section">Home</a></li>
+            <li><a href="#about" class="text-2xl text-white mb-4 hover:text-green-400 transition-colors duration-300" aria-label="Go to About section">About</a></li>
+            <li><a href="#projects" class="text-2xl text-white mb-4 hover:text-blue-400 transition-colors duration-300" aria-label="Go to Projects section">Projects</a></li>
+            <li><a href="#footer" class="text-2xl text-white mb-4 hover:text-yellow-300 transition-colors duration-300" aria-label="Go to Contact section">Contact</a></li>
         </ul>
     </div>
 
@@ -233,14 +225,14 @@
             <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 text-glow">Dream Big</h1>
             <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-100 mb-6">Reach for the stars and make your dreams a reality.</p>
             <div class="flex justify-center gap-4 mt-6">
-                <button class="bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center hover-effect">
-                    <i class="fas fa-info-circle mr-2"></i> Learn More
+                <button class="bg-gray-900 hover:bg-white-900  font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center hover-effect">
+                    <i class="fab fa-github mr-2 " aria-hidden="true"></i> Github
                 </button>
-                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center hover-effect">
-                    <i class="fas fa-spinner fa-spin mr-2"></i> Get Started
-                </button>
+                <a href="https://www.linkedin.com/in/ayush-thakur-230414232/" target="_blank" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center hover-effect"  aria-label="Visit Ayush Thakur's LinkedIn profile">
+                    <i class="fab fa-linkedin mr-2" aria-hidden="true"></i>Linkedin
+                </a>
                 <button class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 flex items-center hover-effect">
-                    <i class="fas fa-headset mr-2"></i> Support
+                    <i class="fab fa-github" aria-hidden="true"></i> Support
                 </button>
             </div>
         </div>
@@ -275,87 +267,200 @@
                             </div>
                         </div>
                         <!-- Repeat Project Cards as needed -->
+                        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out project-card hover-effect">
+                            <img src="One Piece PNG Images Transparent Free Download - PNG Mart.jpeg" alt="Project Image" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-white mb-2">Project Title</h3>
+                                <p class="text-gray-400 mb-4">Brief description of the project. Highlighting key features and technologies used.</p>
+                                <a href="https://github.com/ayushthakur04" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold">View on GitHub</a>
+                            </div>
+                        </div>
+                        <!-- Repeat Project Cards as needed -->
+                        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out project-card hover-effect">
+                            <img src="One Piece PNG Images Transparent Free Download - PNG Mart.jpeg" alt="Project Image" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-white mb-2">Project Title</h3>
+                                <p class="text-gray-400 mb-4">Brief description of the project. Highlighting key features and technologies used.</p>
+                                <a href="https://github.com/ayushthakur04" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold">View on GitHub</a>
+                            </div>
+                        </div>
+                        <!-- Repeat Project Cards as needed -->
+                         
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-parallax-contact parallax bg-cover bg-center min-h-screen">
-            <div class="container mx-auto px-4 sm:px-8 md:px-16">
-                <div class="text-center fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Contact Me</h2>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8">I would love to hear from you! Feel free to reach out for any inquiries or collaboration opportunities.</p>
-                    <form action="#" method="POST" class="max-w-lg mx-auto">
-                        <input type="text" name="name" placeholder="Your Name" class="w-full p-3 mb-4 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
-                        <input type="email" name="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
-                        <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-3 mb-4 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-300"></textarea>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-5 rounded shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
+        
 
-    <footer class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center text-white">
-        <p class="mb-4">You can contact me:</p>
-        <div class="flex justify-center mb-4">
-            <a href="mailto:ayush20489@gmail.com" class="text-white mx-2 hover:text-yellow-300 transition-colors duration-300">
-                <i class="fas fa-envelope"></i>
+     
+
+
+
+
+
+
+        
+
+
+
+  <!-- Footer Section -->
+<footer class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center text-white relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 flex justify-center items-center opacity-20">
+        <svg class="w-96 h-96 absolute top-0 left-0 transform rotate-45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="48" cy="48" r="40" stroke="currentColor" stroke-width="4" />
+        </svg>
+        <svg class="w-72 h-72 absolute bottom-0 right-0 transform rotate-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="30" stroke="currentColor" stroke-width="4" />
+        </svg>
+    </div>
+    <!-- Footer Content -->
+    <div class="flex flex-col items-center z-12 relative">
+        <!-- Contact Modal Structure -->
+        <div id="modal" class="fixed mt-4 inset-0 bg-gray-900 bg-opacity-80 flex items-center justify-center z-50 hidden pt-16">
+            <div class="bg-gradient-to-r from-indigo-500 via-blue-500 to-teal-500 p-4 rounded-xl shadow-xl w-[35vw] h-[90vh] max-w-full max-h-full relative overflow-hidden transform scale-90 transition-transform duration-500 ease-in-out flex flex-col">
+                <button id="close-modal" class="absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300" aria-label="Close Modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <section id="contact" class="relative z-10 flex flex-col h-full">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-extrabold mb-2 text-white transform scale-95 transition-transform duration-500 hover:scale-100">Get in Touch</h2>
+                        <p class="text-lg text-gray-200">Excited to hear from you! Reach out for questions or collaborations.</p>
+                    </div>
+                    <form id="contact-form" action="#" method="POST" class="bg-white p-4 rounded-lg shadow-xl flex flex-col flex-grow relative overflow-hidden">
+                        <div class="absolute inset-0 bg-opacity-20 bg-gray-300 rounded-lg -z-10"></div>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-800 text-lg mb-2 font-semibold">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border border-gray-300 bg-gray-100 text-gray-800 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition-transform duration-300 transform hover:scale-105 hover:shadow-xl" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-800 text-lg mb-2 font-semibold">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border border-gray-300 bg-gray-100 text-gray-800 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition-transform duration-300 transform hover:scale-105 hover:shadow-xl" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-800 text-lg mb-2 font-semibold">Your Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-3 rounded-lg border border-gray-300 bg-gray-100 text-gray-800 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition-transform duration-300 transform hover:scale-105 hover:shadow-xl" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 mt-4">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                        
+                        <div class="mt-2 text-center text-2xl">
+                            <p class="text-gray-700  text-l">Connect with me:</p>
+                            <div class="flex justify-center gap-4">
+                                <a href="https://github.com/ayushthakur04" class="text-gray-800 hover:text-blue-600 transition-colors duration-300" target="_blank" aria-label="GitHub">
+                                    <i class="fab fa-github fa-lg"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/ayush-thakur-230414232/" class="text-gray-800 hover:text-blue-600 transition-colors duration-300" target="_blank" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin fa-lg"></i>
+                                </a>
+                                <a href="https://www.instagram.com/yourusername/" class="text-gray-800 hover:text-blue-600 transition-colors duration-300" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+        <!-- Contact Button -->
+        <button id="open-modal" class="bg-blue-500 hover:bg-blue-600 text-white  mt-2 font-bold py-2 px-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 mb-6">
+            <i class="fas fa-envelope mr-2"></i> Contact Me
+        </button>
+
+        <!-- Social Media Icons -->
+        <div class="flex justify-center mb-6 space-x-6">
+            <a href="mailto:ayush20489@gmail.com" class="text-white transition-colors duration-300 transform text-3xl hover:scale-125 hover:rotate-12 hover:shadow-xl" aria-label="Email Ayush Thakur">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
-            <a href="https://github.com/ayushthakur04" target="_blank" class="text-white mx-2 hover:text-yellow-300 transition-colors duration-300">
-                <i class="fab fa-github"></i>
+            <a href="https://github.com/ayushthakur04" target="_blank" class="text-white transition-colors duration-300 transform text-3xl hover:scale-125 hover:rotate-12 hover:shadow-xl" aria-label="Visit Ayush Thakur's GitHub profile">
+                <i class="fab fa-github" aria-hidden="true"></i>
             </a>
-            <a href="https://www.linkedin.com/in/ayush-thakur-230414232/" target="_blank" class="text-white mx-2 hover:text-yellow-300 transition-colors duration-300">
-                <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/ayush-thakur-230414232/" target="_blank" class="text-white transition-colors duration-300 transform text-3xl hover:scale-125 hover:rotate-12 hover:shadow-xl" aria-label="Visit Ayush Thakur's LinkedIn profile">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com/yourusername/" target="_blank" class="text-white mx-2 hover:text-yellow-300 transition-colors duration-300">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/yourusername/" target="_blank" class="text-white transition-colors duration-300 transform text-3xl hover:scale-125 hover:rotate-12 hover:shadow-xl" aria-label="Visit Ayush Thakur's Instagram profile">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
         </div>
-        <p class="text-sm">&copy; 2024 Ayush Thakur. All rights reserved.</p>
-        <p class="text-sm">Developed with <i class="fas fa-heart text-red-500"></i> by Ayush Thakur</p>
-    </footer>
 
-        <!-- Back to Top Button -->
-        <button id="back-to-top" class="fixed bottom-5 right-5 bg-yellow-300 text-black font-bold py-2 px-4 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105">
-            ↑
-        </button>
+        <!-- Footer Text -->
+        <div class="text-sm mb-4">
+            <p>&copy; 2024 Ayush Thakur. All rights reserved.</p>
+            <p>Developed with <i class="fas fa-heart text-red-500" aria-hidden="true"></i> by Ayush Thakur</p>
+        </div>
+    </div>
+</footer>
+
+
+
     
-        <!-- JavaScript -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const closeMenu = document.getElementById('close-menu');
-                const backToTopButton = document.getElementById('back-to-top');
     
-                menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                });
     
-                closeMenu.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                });
-    
-                // Back to Top Button visibility
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 300) {
-                        backToTopButton.classList.add('show');
-                    } else {
-                        backToTopButton.classList.remove('show');
-                    }
-                });
-    
-                // Smooth scroll to top
-                backToTopButton.addEventListener('click', function() {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 bg-yellow-300 text-black font-bold py-2 px-4 rounded shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const menuToggleButton = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuButton = document.getElementById('close-menu');
+
+            menuToggleButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
             });
-        </script>
-    </body>
-    </html>
-    
 
+            closeMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+              document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('active');
+    });
+
+    document.getElementById('close-menu').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.remove('active');
+    });
+
+    document.getElementById('open-modal').addEventListener('click', function() {
+        document.getElementById('modal').classList.remove('hidden');
+    });
+
+    document.getElementById('close-modal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === document.getElementById('modal')) {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    });
+        });
+
+
+    </script>
+    
+</body>
+</html>
